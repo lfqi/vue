@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style>
+    
+        p,button{
+            font-size: 25px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>计算器:{{counter}}</p>
+        <button @click="counter++">点我</button>
+    </div>
+</body>
+</html>
+<script>
+
+    var vm = new Vue({
+        el : "#app",
+        data : {
+            counter : 1
+        }
+    });
+    vm.$watch('counter',function(nval,oval){
+        alert('计算器值的变化:'+ oval + '变为' + nval + '!')
+    })
+
+</script>

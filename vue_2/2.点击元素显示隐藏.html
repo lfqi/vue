@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+    
+        .box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border: 2px solid yellow;
+            color: black;
+            text-align: center;
+            line-height: 200px;
+            margin: 100px auto;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show">hide</button>
+        <button v-on:click="hide">show</button>
+        <button v-on:click="toggle()">toggle</button>
+        <button v-on:click="add">自增</button>
+
+        <div class="box" v-show="boolean">
+            {{count}}
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+    new Vue({
+        el : "#app",
+        data : {
+            boolean : true,
+            count : 0
+        },
+        methods : {
+            show : function () {
+                this.boolean = false
+            },
+            hide : function () {
+                this.boolean = true
+            },
+            toggle : function () {
+                if (this.boolean) {
+                    this.boolean = false
+                } else {
+                    this.boolean = true
+                }
+            },
+            add : function () {
+                let that = this;
+                setInterval(function(){
+                    that.count ++
+                },100);
+            }
+        }        
+    })
+
+</script>

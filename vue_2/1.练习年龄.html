@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>我的名字是:{{name}}</p>
+        <p>我的年龄是:{{age}}</p>
+
+        <h1>{{age * 3}}</h1>
+        
+        <p>取值0-1之间的随机数:{{random()}}</p>
+
+        <img v-bind:src="imgUrl" alt="">
+
+        <input type="text" v-bind:value="name">
+    </div>
+</body>
+</html>
+<script>
+
+    new Vue({
+        el : "#app",
+        data : {
+            name : "LiuFengQi",
+            age : "20",
+            imgUrl : "http://img1.imgtn.bdimg.com/it/u=2004185588,1761930389&fm=26&gp=0.jpg"
+        },
+        methods : {
+            getrandom : function (minvalue,maxvalue) {
+                return Math.floor(Math.random()*(maxvalue-minvalue+1)+minvalue)
+            },
+            random : function () {
+                // return Math.random()
+                return this.getrandom(1,100)
+            }
+        }
+    })
+
+</script>
