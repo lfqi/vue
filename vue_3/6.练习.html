@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+    
+        .a{
+            background: red;
+        }
+        .b{
+            background: yellow
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="anniu">click</button>
+
+        <p>{{title}}</p>
+
+        <a v-html="link"></a>
+
+        <h1 v-text="vText"></h1>
+        
+        <input type="text" v-model="myValue">
+        当用户输入××××的时候,显示下面的button
+
+        <button v-show="myValue == '××××'">用户输入的是:××××</button>
+
+        <ul>
+            <li v-for="item in stus" v-bind:class="item.myClass">
+                {{item.name}}
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(v,k,index) in stus2">
+                v : {{v}}
+                k : {{k}}
+                index : {{index}}
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
+<script>
+
+    new Vue({
+        el : "#app",
+        data : {
+            myValue : "呵呵嘻嘻哈哈",
+            vText : "123",
+            title : "hello",
+            link : "<a href='https://www.baidu.com'>百度</a>",
+            stus : [{name :'张三',myClass:'a'},{name:'李四',myClass:'b'},{name:'王五',myClass:'a'}],
+            stus2 : [{'A':'张三','B':'李四','C':'王五'}]    
+        },
+        methods : {
+            anniu : function () {
+                this.title = "world"
+            }
+        }
+    })
+
+</script>

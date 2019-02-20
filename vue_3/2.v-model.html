@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+    
+        input{
+            width: 200px;
+            height: 30px;
+            font-size: 25px;
+        }
+        button{
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="massage">
+
+        <h1>{{massage}}</h1>
+
+        <button v-on:click="get">弹框</button>
+    </div>
+</body>
+</html>
+<script>
+
+    new Vue({
+        el : "#app",
+        data : {
+           massage : "今天心情美美哒"
+        },
+        methods : {
+            get : function () {
+                alert(this.massage)
+            }
+        }
+    })
+
+</script>
