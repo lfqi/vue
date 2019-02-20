@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+    
+        #box{
+            width:200px;
+            height:200px;
+            border:2px solid #ccc;
+            margin:100px auto;
+            text-align: center;
+            line-height: 200px;
+            background: red;
+            color:#fff;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="changeW">变宽</button>
+        <button v-on:click="changeH">变高</button>
+        <button v-on:click="changeS">变色</button>
+
+        <div id="box">{{message}}</div>
+    </div>
+</body>
+</html>
+<script>
+
+    new Vue({
+        el : "#app",
+        data : {
+            message : "hello"
+        },
+        methods : {
+            bW : function (element,vlaue) {
+                element.style.width = vlaue;   
+            },
+            bH : function (element,vlaue) {
+                element.style.height = vlaue;
+            },
+            bS : function (element,value) {
+                element.style.background = value;  
+            },
+            changeW : function () {
+                this.bW(box,"300px");
+                this.message = "world"
+            },
+            changeH : function () {
+                this.bH(box,"300px");
+                this.message = "world"
+            },
+            changeS : function () {
+                this.bS(box,"yellow");
+                this.message = "world"
+            }
+        }
+    })
+
+</script>
