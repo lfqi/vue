@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        数字1：{{ num1 | toInt }}<br>
+        数字2：{{ num2 | toInt }}<br>
+        数字3：{{ num3 | toInt }}
+    </div>
+</body>
+</html>
+<script>
+
+     let vm = new Vue ({
+        el : "#app",
+        data : {
+            num1 : 33.333,
+            num2 : 22.222,
+            num3 : 66.666
+        },
+        //过滤器
+        filters : {
+            toInt:function(value){
+                return parseInt(value)
+            }
+        }
+    })
+
+</script>

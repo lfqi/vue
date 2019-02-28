@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div ref="app" id="app">{{name}}</div>
+</body>
+</html>
+<script>
+
+    new Vue({
+        el : "#app",
+        data : {
+            name : "前端君"
+        },
+        beforeCreate : function () {
+            console.log("即将创建")
+            console.log(this.$data)
+            console.log(this.$el)
+        },
+        created : function () {
+            console.log("创建完毕")
+            console.log(this.$data)
+            console.log(this.$el)
+        },
+        beforeMount : function () {
+            console.log("即将挂载")
+            console.log(this.$el)
+        },
+        mounted : function () {
+            console.log("即将挂载")
+            console.log(this.$el)
+        },
+        beforeUpdate : function () {
+            console.log('= 即将更新渲染 =');
+            let name = this.$refs.app.innerHtml;
+            console.log('name:'+name)
+        },
+        updated : function () {
+            console.log('== 更新成功 ==');
+            let name = this.$refs.app.innerHtml;
+            console.log('name:'+name)
+        },
+        beforeDestroy : function () {
+            console.log("销毁之前")
+        },
+        destroyed : function () {
+            console.log("销毁成功")
+        }
+    })
+
+</script>

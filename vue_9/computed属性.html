@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        数字 : {{num1}} <br>
+        数字 : {{num2}} <br>
+        数字 : {{num3}}
+
+        总和 ： {{sum}}
+    </div>
+</body>
+</html>
+<script>
+
+    let vm = new Vue({
+        el : "#app",
+        data : {
+            num1 : 3,
+            num2 : 5,
+            num3 : 6
+        },
+        computed : {
+            sum () {
+                return this.num1+this.num2+this.num3
+            }
+        }
+    })
+
+</script>
