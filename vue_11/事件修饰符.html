@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <script src="vue.js"></script>
+      <style media="screen">
+         .inner{
+            height: 100px;
+            background: purple;
+         }
+         .inner input{
+            width: 100px;
+            height: 30px;
+            font-weight: bold;
+            font-size:20px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="app">
+         <!-- 使用   .stop  阻止冒泡 -->
+         <!-- <div class="inner" @click="divbox">
+            <input type="button" value="戳他" @click.stop="btnbox">
+         </div> -->
+
+         <!-- 使用   .prevent  阻止默认行为 -->
+         <!-- <a href="https://www.baidu.com" @click.prevent="link">点击</a> -->
+
+         <!-- 使用   .capture 实现触发点击事件的机制 -->
+         <!-- <div class="inner" @click.capture="divbox">
+            <input type="button" value="戳他" @click="btnbox">
+         </div> -->
+
+         <!-- 使用   .self 实现只有点击当前元素的时候,才会触发事件处理函数 -->
+         <!-- <div class="inner" @click.self="divbox">
+            <input type="button" value="戳他" @click="btnbox">
+         </div> -->
+
+         <!-- 使用  .once 只触发一次事件处理函数 -->
+         <a href="https://www.baidu.com" @click.prevent.once="link">点击</a>
+      </div>
+   </body>
+</html>
+<script type="text/javascript">
+   new Vue({
+      el : "#app",
+      data : {
+
+      },
+      methods : {
+         divbox : function(){
+            console.log("这是触发了inner div的点击事件");
+         },
+         btnbox : function(){
+            console.log("这是触发了btn box的点击事件");
+         },
+         link : function(){
+            console.log("这是触发了连接的点击事件");
+         }
+      }
+   })
+</script>
